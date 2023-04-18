@@ -1,0 +1,76 @@
+div style="display: grid; grid-template-columns: 30% 30% 30%"
+    h3  style="margin: 0px; padding-left: 8px;" Songs name 
+    h3 style="margin: 0px; padding-left: 8px;" Artist 
+    h3 style="margin: 0px; padding-left: 8px;" Genre 
+  
+
+div.boss
+   - i = 0 
+   - while i < @notes.length()
+        div style="margin-top: 16px; display: grid; grid-template-columns: 20% 20% 20% 10% 10% 10%;" 
+            p.one  = @notes[i]["content"]
+            p.two = @notes[i]["name"]
+            p.two = @notes[i]["genre"]
+            p.three = @notes2[i]["genre"]
+
+            a style="margin-top: 4px; text-align: right; margin-right: 4px; color: #282728; text-decoration: none; padding-top: 35px; padding-bottom: 35px;" href="/update/#{@notes[i]["notes_id"]}/#{@notes[i]["name"]}/#{@notes[i]["content"]}/#{@notes[i]["genre"]}/#{@notes2[i]["genre"]}"  
+                        img src="img/refresh.png" alt="My Image" style="width 30px;height: 30px; padding-right: 20px;"
+            a style="margin-top: 4px; text-align: right; margin-right: 4px; color: #282728; text-decoration: none; padding-top: 35px; padding-bottom: 35px; background-image: url(img/delete);" href="/delete/#{@notes[i]["notes_id"]}"
+                        img src="img/remove.png" alt="My Image" style="width 30px;height: 30px; padding-right: 20px;"
+    
+            
+           
+            - i += 1
+        
+   
+   
+   / - @notes.each do |note|
+        div.mini1 style="margin-top: 16px; display: grid; grid-template-columns: 20% 20% 20% 10%;" 
+            p.one   = note["content"] 
+            p.two  = note["name"] 
+            p.two = note["genre"]
+            p.three = note["genre_id2"]
+          
+
+
+
+   / - @notes2.each  do |note|
+        div.mini2 style="margin-top: 16px; display: grid; grid-template-columns: 20% 10% 10%;" 
+            p.three = note["genre"]
+
+           / a style="margin-top: 4px; text-align: right; margin-right: 4px; color: #282728; text-decoration: none; padding-top: 35px; padding-bottom: 35px;" href="/update/#{note['notes_id']}/#{note['name']}/#{note['content']}/#{note['genre']}"  
+                img src="img/refresh.png" alt="My Image" style="width 30px;height: 30px; padding-right: 20px;"
+           / a style="margin-top: 4px; text-align: right; margin-right: 4px; color: #282728; text-decoration: none; padding-top: 35px; padding-bottom: 35px; background-image: url(img/delete);" href="/delete/#{note['notes_id']}"
+                        img src="img/remove.png" alt="My Image" style="width 30px;height: 30px; padding-right: 20px;"
+
+
+            
+
+
+
+
+        
+form action="notes" method="post" style="grid; grid-template-columns: 30% 30% 20% 20%;"
+    input.frm style="" type="text" name="content" /
+    input.frm style="" type="text" name="name" /
+    select.frm name="genre_id" 
+        option value="1" indie 
+        option value="2" rock 
+        option value="3" pop
+        option value="4" dans 
+        option value="5" alternative 
+    select.frm  name="genre_id2" 
+        option value="1" indie 
+        option value="2" rock 
+        option value="3" pop
+        option value="4" dans 
+        option value="5" alternative 
+    input.frm style="color: #282728;" type="submit" value="submit" 
+    a.frm style="color: #282728; text-decoration: none; font-family: 'Inter', sans-serif; font-weight: 500;" href="logout" Log Out
+
+
+
+
+/ style="margin: 0px; padding-left: 8px; padding-top: 35px; padding-bottom: 35px; background-color:  #f8f8f8;; border-radius: 25px 0px 0px 25px;"
+/ style="margin: 0px; padding-left: 8px; padding-top: 35px; padding-bottom: 35px; background-color:  #f8f8f8;; border-radius: 0px 0px 0px 0px;"
+/ style="margin: 0px; padding-left: 8px; padding-top: 35px; padding-bottom: 35px; background-color:  #f8f8f8;; border-radius: 0px 25px 25px 0px;" 
